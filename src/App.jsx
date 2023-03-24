@@ -4,9 +4,9 @@ import TodoCreate from "./components/TodoCreate";
 import TodoList from "./components/TodoList";
 import TodoFilter from "./components/TodoFilter";
 import Footer from "./components/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const initialStateTodos = [
+const initialStateTodos = localStorage.getItem("todos-React-Todo") ? JSON.parse(localStorage.getItem("todos-React-Todo")) : [
   {
     id:1,
     title: "Go to the gym",
@@ -28,6 +28,9 @@ const App = () => {
 
   const [todos, setTodos] = useState(initialStateTodos);
 
+  useEffect (() => {
+    localStorage.setItem("todos-React-Todo", JSON.stringify(todos))
+  },[todos]);
   const [filter, setFilter] = useState("all");
 
   const filteredTodos = () => {
