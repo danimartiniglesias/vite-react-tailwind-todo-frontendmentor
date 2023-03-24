@@ -1,13 +1,15 @@
 import TodoItem from "./TodoItem";
 
-const TodoList = () => {
+const TodoList = ({todos, updateTodo, removeTodo}) => {
+    console.log(todos)
+    
     return(
         <>
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-          </>
-          )
+            {todos.map(todo => (
+                <TodoItem key={todo.id}  todo={todo} updateTodo={updateTodo} removeTodo={removeTodo}/>
+            ))}
+        </>
+        )
 }
 
 export default TodoList;
