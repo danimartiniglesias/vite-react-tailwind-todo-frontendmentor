@@ -1,5 +1,5 @@
 import IconCheck from "./icons/IconCheck";
-import CrossIcon from "./icons/IconCross";
+import IconCross from "./icons/IconCross";
 
 const TodoItem = ({todo, updateTodo, removeTodo}) => {
     const {id, title, completed} = todo;
@@ -19,14 +19,11 @@ const TodoItem = ({todo, updateTodo, removeTodo}) => {
 
     return (
         <article className="flex gap-4 p-4 border-b border-b-gray-400 px-4">
-            {/* <button className="rounded-full border-2 w-5 h-5 inline-block flex-none">
-                <IconCheck/>
-            </button> */}
             <button onClick={() => updateTodo(id)} className={completed ? completedStyle : uncompletedStyle}>
                 { completed && <IconCheck/>}
             </button>
-            <p className={`text-gray-600 grow ${completed && "line-through"}`}>{title}</p>
-            <button onClick={() => removeTodo(id)} className="flex-none"><CrossIcon/></button>
+            <p className={`text-gray-600 dark:text-gray-400 transition-all duration-1000 grow ${completed && "line-through"}`}>{title}</p>
+            <button onClick={() => removeTodo(id)} className="flex-none"><IconCross/></button>
         </article>
     );
 }
