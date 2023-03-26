@@ -43,7 +43,7 @@ const App = () => {
   }
   const createTodo  = (title) => {
     const newTodo = {
-      id: todos.length +1,
+      id: Date.now(),
       title: title.trim(),
       completed: false
     };
